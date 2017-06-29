@@ -1,11 +1,9 @@
 {
-  "name": "express",
+  "name": "admin subdomain",
   "version": "0.0.0",
-  "author": "Evgeniy Bond",
   "private": true,
   "scripts": {
-    "start": "PORT=3000 gulp",
-    "startDb": "sudo /Users/Evgeniy/mongodb/bin/mongod --dbpath '/Users/Evgeniy/mongodb/data/db'"
+    "start": "PORT=5000"
   },
   "dependencies": {
     "body-parser": "~1.17.1",

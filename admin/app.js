@@ -5,15 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var exphbs  = require('express-handlebars');
-var vhost = require('vhost');
 var fs = require('fs');
-
 var app = express();
 
 //routes
 var index = require('./routes/index');
-var users = require('./routes/users');
-var admin = require('./routes/admin');
 
 // view engine setup
 app.engine('hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
@@ -27,20 +23,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Virtual hosts
-// var vadmin = require('./admin/app.js');
-// app.use(vhost('*.localhost', vadmin));
 
 app.use('/', index);
-app.use('/users', users);
-app.use('/admin', admin);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -48,8 +32,17 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
+  // render the error page
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+var http = require('http');
+const PORT =  5000;
+var server = http.createServer(app);
+
+server.listen(PORT);
+
 
 module.exports = app;
