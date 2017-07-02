@@ -12,7 +12,7 @@ var app = express();
 
 //routes
 var index = require('./routes/index');
-var users = require('./routes/users');
+var post = require('./routes/post');
 var admin = require('./routes/admin');
 
 // view engine setup
@@ -28,12 +28,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Virtual hosts
-// var vadmin = require('./admin/app.js');
-// app.use(vhost('*.localhost', vadmin));
+// var admin = require('./admin/app.js');
+// app.use(vhost('admin.example.com', admin));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/post', post);
 app.use('/admin', admin);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

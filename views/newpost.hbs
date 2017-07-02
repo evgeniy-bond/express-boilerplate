@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>{{title}}</h1>
+            <form enctype="multipart/form-data" id="form">
+                <div class="form-group">
+                    <label for="author">
+                        Имя Автора
+                    </label>
+                    <input type="text" class="form-control" id="author" placeholder="Ваше имя" name="author">
+                </div>
+                <div class="form-group">
+                    <label for="title">Заголовок</label>
+                    <input type="text" class="form-control" id="title" placeholder="Название статьи" name="title">
+                </div>
+                <div class="form-group">
+                    <input type="file" id="file" name="file" enctype="multipart/form-data">
+                </div>
+                <div class="form-group">
+                    <label for="text">Введите текст</label>
+                    <textarea name="text" id="text" cols="30" rows="10" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" id="add-news">Добавить</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/js/index.js"></script>
