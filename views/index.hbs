@@ -1,1 +1,20 @@
-<h1>{{title}}</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>{{title}}</h2>
+        
+        {{#each posts}}
+        <div class="card mt10">
+            <img src="{{this.img}}" alt="" class="card-img-top">
+            <div class="card-block">
+                <h4 class="card-title">{{this.title}}</h4>
+                <span>{{this.date}}</span>
+                <h5 class="card-title"></h5>
+                <p class="card-text">{{this.text}}</p>
+                <a href="/post/" class="btn btn-primary">Полная новость</a>
+            </div>
+        </div>
+        {{/each}}
+        </div>
+    </div>
+</div>

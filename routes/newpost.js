@@ -24,11 +24,11 @@ router.post('/', (req, res, next) => {
     on('fileBegin', (name, file) => {
       if (!file.name) return;
       let id = Date.now();
-      let mainPath = path.resolve(__dirname, '../upload/');
+      let mainPath = path.resolve(__dirname, '../upload');
 
       fs.mkdirSync(mainPath + `/post_${id}`);
-      post.img = file.path = path.resolve(__dirname, `../upload/post_${id}/` + file.name);
-
+      file.path = path.resolve(__dirname, `../upload/post_${id}/` + file.name);
+      post.img = `/post_${id}/` + file.name;
     })
     .on('end', () => {
 
