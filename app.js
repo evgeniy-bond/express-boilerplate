@@ -14,6 +14,7 @@ var app = express();
 var index = require('./routes/index');
 var post = require('./routes/post');
 var admin = require('./routes/admin');
+var newpost = require('./routes/newpost');
 
 // view engine setup
 app.engine('hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
@@ -34,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/post', post);
 app.use('/admin', admin);
-
+app.use('/newpost', newpost);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
